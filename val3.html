@@ -1,0 +1,161 @@
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HW 8</title>
+
+
+
+<style>
+
+div{
+margin-left:100px;
+margin-right:100px;
+color:orange;
+}
+
+.field-validation-error
+{
+    display:block;
+}
+
+body{
+background-image:url("http://www.neovisual.cz/files/V0779-d9.jpg");
+}
+</style>
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+ 
+</head>
+<body>
+
+<div class="form-group">
+<h2> Search Your Property Here</h2>
+<br><br>
+<form  method="POST"  action="" id="myform">
+	
+		
+	<p>
+		<label for="addr">Street Address*:</label> 
+		&nbsp;
+		<input type="text" name="address" id="addr" class="address" placeholder="Address" />
+	
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<label for="city">City*:</label>
+		&nbsp;
+		<input type="text" name="city" id="city"  class="city" placeholder="City" />
+		
+		&nbsp;&nbsp;&nbsp;&nbsp;
+	
+	
+		<label for="state">State*:</label>
+		
+		<select name="state" id="state" class="state" >
+			<option value="" selected></option>	
+			<option value="AK">AK</option>
+			<option value="AL">AL</option>
+			<option value="AR">AR</option>
+			<option value="AZ">AZ</option>
+			<option value="CA">CA</option>
+			<option value="CO">CO</option>
+			<option value="CT">CT</option>
+			<option value="DC">DC</option>
+			<option value="DE">DE</option>
+			<option value="FL">FL</option>
+			<option value="GA">GA</option>
+			<option value="HI">HI</option>
+			<option value="IA">IA</option>
+			<option value="ID">ID</option>
+			<option value="IL">IL</option>
+			<option value="IN">IN</option>
+			<option value="KS">KS</option>
+			<option value="KY">KY</option>
+			<option value="LA">LA</option>
+			<option value="MA">MA</option>
+			<option value="MD">MD</option>
+			<option value="ME">ME</option>
+			<option value="MI">MI</option>
+			<option value="MN">MN</option>
+			<option value="MO">MO</option>
+			<option value="MS">MS</option>
+			<option value="MT">MT</option>
+			<option value="NC">NC</option>
+			<option value="ND">ND</option>
+			<option value="NE">NE</option>
+			<option value="NH">NH</option>
+			<option value="NJ">NJ</option>
+			<option value="NM">NM</option>
+			<option value="NV">NV</option>
+			<option value="NY">NY</option>
+			<option value="OH">OH</option>
+			<option value="OK">OK</option>
+			<option value="OR">OR</option>
+			<option value="PA">PA</option>
+			<option value="RI">RI</option>
+			<option value="SC">SC</option>
+			<option value="SD">SD</option>
+			<option value="TN">TN</option>
+			<option value="TX">TX</option>
+			<option value="UT">UT</option>
+			<option value="VA">VA</option>
+			<option value="VT">VT</option>
+			<option value="WA">WA</option>
+			<option value="WI">WI</option>
+			<option value="WV">WV</option>
+			<option value="WY">WY</option>
+		</select>
+		
+		&nbsp;&nbsp;&nbsp;&nbsp;
+	
+		<input class="inp2" type="submit" value="Submit" name="submit" class="btn btn-default"/>
+		
+
+	<img src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=/static/logos/Zillowlogo_150x40_rounded.gif" width="150" height="40" alt="Zillow Real Estate Search" align="right"/>	
+	<br>
+	<br><br>
+	
+	</form>
+</div>
+
+<script>
+$('#myform').validate({
+	
+        focusInvalid: true, // do not focus the last invalid input
+
+  rules: {
+			address: {
+				required: true
+			},
+			city: {
+				required: true
+			},
+			state: {
+				minlength: 2,
+				required: true
+			}
+	
+	
+		},
+  messages:{
+			address:{required: "enter addr"}
+		},
+		errorElement: "span",
+        
+        errorPlacement: function(e, t) {
+        if (t.parent(".input-group").length) {
+                    e.insertAfter(t.parent())
+                } else {
+                    e.insertAfter(t)
+                }
+            },
+			notEmpty: {
+                        // enabled is true, by default
+                        message: 'The full name is required and cannot be empty'
+                    },
+  
+});
+</script>
